@@ -44,7 +44,6 @@ export default function useAuthentication() {
       try {
         const {data} = await authService.verifyRegisterValues(values);
         if (!data.hasErrors) {
-          return;
           await dispatch(actions.auth.authenticate(values, 'register'));
         } else {
           setErrors(data.errors);

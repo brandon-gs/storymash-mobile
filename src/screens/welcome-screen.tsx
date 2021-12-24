@@ -8,14 +8,7 @@ import StyledScrollView from '_components/atoms/styled-scrollview';
 const {width} = Dimensions.get('window');
 
 const StyledButton = (props: IButtonProps) => (
-  <Button
-    h={16}
-    w="full"
-    maxW={400}
-    variant="rounded"
-    {...props}
-    _text={{fontSize: 'lg'}}
-  />
+  <Button h={16} w="full" maxW={400} _text={{fontSize: 'lg'}} {...props} />
 );
 
 export default function WelcomeScreen() {

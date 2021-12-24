@@ -64,24 +64,9 @@ export default function FormRegister() {
           returnKeyType="next"
           ref={lastNameRef}
           blurOnSubmit={false}
-          onSubmitEditing={() =>
-            usernameRef.current && usernameRef.current.focus()
-          }
-        />
-        <FormControl.ErrorMessage>{errors.lastName}</FormControl.ErrorMessage>
-      </FormControl>
-
-      <FormControl mb={3} isInvalid={Boolean(errors.username)}>
-        <FormControl.Label>Nombre de usuario</FormControl.Label>
-        <Input
-          autoCapitalize="none"
-          onChangeText={handleChange('username')}
-          returnKeyType="next"
-          ref={usernameRef}
-          blurOnSubmit={false}
           onSubmitEditing={() => Keyboard.dismiss()}
         />
-        <FormControl.ErrorMessage>{errors.username}</FormControl.ErrorMessage>
+        <FormControl.ErrorMessage>{errors.lastName}</FormControl.ErrorMessage>
       </FormControl>
 
       <FormControl mb={3} isInvalid={Boolean(errors.gender)}>
@@ -89,11 +74,11 @@ export default function FormRegister() {
         <Select
           minWidth="200"
           accessibilityLabel="Género"
-          onValueChange={() => {
-            handleChange('gender');
+          onValueChange={selectedGender => {
+            handleChange('gender')(selectedGender);
             setTimeout(() => {
-              emailRef.current && emailRef.current.focus();
-            }, 1000);
+              usernameRef.current && usernameRef.current.focus();
+            }, 800);
           }}
           _selectedItem={{
             bg: 'teal.600',
@@ -105,6 +90,19 @@ export default function FormRegister() {
           <Select.Item label="Otro" value="other" />
         </Select>
         <FormControl.ErrorMessage>{errors.gender}</FormControl.ErrorMessage>
+      </FormControl>
+
+      <FormControl mb={3} isInvalid={Boolean(errors.username)}>
+        <FormControl.Label>Nombre de usuario</FormControl.Label>
+        <Input
+          autoCapitalize="none"
+          onChangeText={handleChange('username')}
+          returnKeyType="next"
+          ref={usernameRef}
+          blurOnSubmit={false}
+          onSubmitEditing={() => emailRef.current && emailRef.current.focus()}
+        />
+        <FormControl.ErrorMessage>{errors.username}</FormControl.ErrorMessage>
       </FormControl>
 
       <FormControl mb={3} isInvalid={Boolean(errors.email)}>
@@ -158,7 +156,6 @@ export default function FormRegister() {
       <Button
         mt="3"
         colorScheme="blue"
-        variant="rounded"
         onPress={() => handleRegister(values, setErrors)}>
         Crear cuenta
       </Button>

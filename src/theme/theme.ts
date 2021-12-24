@@ -23,13 +23,8 @@ const customTheme = extendTheme({
       },
     },
     Button: {
-      variants: {
-        rounded: ({colorScheme}: any) => {
-          return {
-            bg: `${colorScheme}.500`,
-            rounded: 'full',
-          };
-        },
+      baseStyle: {
+        rounded: 'full',
       },
       defaultProps: {
         colorScheme: 'blue',

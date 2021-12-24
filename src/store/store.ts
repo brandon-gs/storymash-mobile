@@ -5,10 +5,11 @@ import {AuthState} from './types/auth.types';
 import thunk from 'redux-thunk';
 import rootReducer from './reducers';
 
+// Allow persist redux store, you need to add the key in the whitelist to persit store data in that reducer
 const persistConfig: PersistConfig<unknown, any, any, any> = {
   key: 'root',
   storage: AsyncStorage,
-  whitelist: ['authentication'],
+  whitelist: ['auth'],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer as any);
