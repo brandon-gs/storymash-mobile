@@ -1,0 +1,51 @@
+[*] Install mongodb
+
+[*] Implement redux 
+    [*] Add redux thunk
+    [*] Add redux persist
+
+[] Create register validations
+    [] No empty fields
+    [] Show a input when select custom gender
+    [] Show loader while do register request (npm install react-native-spinkit@latest --save)
+    [] Show error if it fails
+    
+[*] Create auth reducer
+[*] Create auth actions
+[*] Create auth types
+[*] Create global action types
+
+[*] Config env variables
+
+[] Connect redux to dispatch register action
+[*] Connect redux to dispatch login action
+
+[] Create "carrousel" in register screen
+    [] Personal information (name, lastname, gender, birthday)
+    [] Login or Profile information (username, email, password, confirm password)
+
+[] Create add story button and screen
+
+[] Create story screen
+
+[] Read story
+
+[] List stories
+
+[] Update story
+
+[] Delete story
+
+[] Add comment
+
+[] List comments
+
+[] Update comment
+
+[] Delete comment
+
+[] Profile screen
+
+[] Favorite stories 
+
+[] Bookmark stories
