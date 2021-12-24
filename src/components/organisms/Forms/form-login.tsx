@@ -1,10 +1,12 @@
 import React, {useState} from 'react';
 import {FormControl, Input, Button} from 'native-base';
 import InputPassword from '_components/molecules/input-password';
-import useAuthentication, {LoginValues} from '_hooks/store/useAuthentication';
+import useAuthenticationStore, {
+  LoginValues,
+} from '_hooks/store/useAuthenticationStore';
 
 export default function FormLogin() {
-  const {actions, state} = useAuthentication();
+  const {actions, state} = useAuthenticationStore();
   const [values, setValues] = useState<LoginValues>({
     username: '',
     password: '',

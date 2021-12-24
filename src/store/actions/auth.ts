@@ -49,18 +49,15 @@ export const authenticate = (
     throw new Error('Wront API call!');
   }
 
-  return async (dispatch: DispatchAction, getState: () => RootState) => {
-    if (getState().auth.loading) {
-      return;
-    }
-
+  return async (dispatch: DispatchAction) => {
     dispatch({type: '@AUTH/ENABLE_LOADER'});
 
     try {
       // Get user info
+      const response = await authService.authenticateUser(type, formData);
       const {
         data: {token, user},
-      } = await authService.authenticateUser(type, formData);
+      } = response;
       // Add token to axios headers
       axios.defaults.headers.common.authorization = token;
       // Save auth data in axios
@@ -79,11 +76,11 @@ export const authenticate = (
         const message =
           'Error al conectar con el servidor, intentelo más tarde';
         Alert.alert('Error', message);
-      }, 100);
+      }, 200);
     } finally {
       setTimeout(() => {
         dispatch({type: '@AUTH/DISABLE_LOADER'});
-      }, 100);
+      }, 200);
     }
   };
 };

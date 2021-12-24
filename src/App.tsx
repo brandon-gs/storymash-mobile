@@ -5,7 +5,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {NativeBaseProvider} from 'native-base';
 import {colorModeManager} from '_theme/colorModeManager';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
-import NavigationWelcome from '_navigations/navigation-welcome';
+import NavigationRoot from '_navigations/navigation-root';
 import {store, persistor} from '_store/store';
 import theme from '_theme/theme';
 
@@ -16,7 +16,7 @@ const App = () => {
         <SafeAreaProvider>
           <NativeBaseProvider theme={theme} colorModeManager={colorModeManager}>
             <NavigationContainer>
-              <NavigationWelcome />
+              <NavigationRoot />
             </NavigationContainer>
           </NativeBaseProvider>
         </SafeAreaProvider>

@@ -21,7 +21,7 @@ export interface LoginValues {
   password: string;
 }
 
-export default function useAuthentication() {
+export default function useAuthenticationStore() {
   const dispatch = useThunkDispatch();
 
   // Redux state
@@ -49,7 +49,9 @@ export default function useAuthentication() {
           setErrors(data.errors);
         }
       } catch (error) {
-        Alert.alert('Error', 'Error en el servicio, inténtalo más tarde');
+        setTimeout(() => {
+          Alert.alert('Error', 'Error en el servicio, inténtalo más tarde');
+        }, 100);
       } finally {
         dispatch(actions.auth.disableLoading());
       }

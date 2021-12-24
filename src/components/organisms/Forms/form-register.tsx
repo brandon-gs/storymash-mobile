@@ -2,9 +2,9 @@ import React, {useRef, useState} from 'react';
 import {FormControl, Input, Button, Select, CheckIcon} from 'native-base';
 import Loader from 'react-native-multi-loader';
 import InputPassword from '_components/molecules/input-password';
-import useAuthentication, {
+import useAuthenticationStore, {
   RegisterValues,
-} from '_hooks/store/useAuthentication';
+} from '_hooks/store/useAuthenticationStore';
 import {Keyboard} from 'react-native';
 
 const defaultFields: RegisterValues = {
@@ -38,7 +38,7 @@ export default function FormRegister() {
   const {
     state: {loading},
     actions: {handleRegister},
-  } = useAuthentication();
+  } = useAuthenticationStore();
 
   return (
     <>
@@ -78,7 +78,7 @@ export default function FormRegister() {
             handleChange('gender')(selectedGender);
             setTimeout(() => {
               usernameRef.current && usernameRef.current.focus();
-            }, 800);
+            }, 1000);
           }}
           _selectedItem={{
             bg: 'teal.600',

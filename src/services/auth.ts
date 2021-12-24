@@ -1,5 +1,5 @@
 import axios from '_utils/axios';
-import {RegisterValues} from '_hooks/store/useAuthentication';
+import {RegisterValues} from '_hooks/store/useAuthenticationStore';
 
 export const authenticateUser = async (
   type: 'login' | 'register',
