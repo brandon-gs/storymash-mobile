@@ -21,12 +21,13 @@ export default function FormLogin() {
     <>
       <FormControl mb={3}>
         <FormControl.Label>Correo electrónico</FormControl.Label>
-        <Input onChangeText={handleChange('username')} />
+        <Input onChangeText={handleChange('username')} autoCapitalize="none" />
       </FormControl>
       <FormControl mb={3}>
         <FormControl.Label>Contraseña</FormControl.Label>
         <InputPassword
           hide={hidePwd}
+          autoCapitalize="none"
           onChangeText={handleChange('password')}
           onPressIcon={() => setHidePwd(prev => !prev)}
           onSubmitEditing={() => actions.handleLogin(values)}

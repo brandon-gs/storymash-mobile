@@ -59,8 +59,12 @@ export default function useAuthenticationStore() {
     [],
   );
 
+  const logOut = useCallback(() => {
+    dispatch(actions.auth.deauthenticate());
+  }, []);
+
   return {
     state: {user, hasAuth, token, loading},
-    actions: {handleLogin, handleRegister},
+    actions: {handleLogin, handleRegister, logOut},
   };
 }

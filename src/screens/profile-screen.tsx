@@ -27,7 +27,6 @@ export default function ProfileScreen() {
     return (
       <StyledScrollView refreshControl={refreshControl}>
         <ProfileHeader user={profileUser} />
-        <ThemeToggle />
       </StyledScrollView>
     );
   }

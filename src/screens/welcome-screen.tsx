@@ -19,10 +19,7 @@ export default function WelcomeScreen() {
       <Center flex={1} px="3">
         <Box safeArea p="1" py="8" w="100%" maxW="400">
           <VStack>
-            <Heading
-              size="3xl"
-              color="coolGray.800"
-              _dark={{color: 'warmGray.50'}}>
+            <Heading size="3xl" color="blue.500">
               Storymash
             </Heading>
             <Heading

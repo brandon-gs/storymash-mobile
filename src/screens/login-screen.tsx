@@ -9,7 +9,9 @@ export default function LoginScreen() {
   const {goToRegisterScreen} = useNavigationScreens();
 
   return (
-    <StyledScrollView>
+    <StyledScrollView
+      keyboardShouldPersistTaps="always"
+      keyboardDismissMode="on-drag">
       <Center flex={1} px="3">
         <Box safeArea p="2" py="8" w="90%" maxW="290">
           <Heading

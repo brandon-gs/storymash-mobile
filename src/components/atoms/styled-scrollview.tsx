@@ -8,6 +8,7 @@ export default function StyledScrollView({
   return (
     <ScrollView
       flex={1}
+      bgColor={'gray.100'}
       _contentContainerStyle={{flexGrow: 1}}
       _dark={{bgColor: 'dark.50'}}
       {...props}>

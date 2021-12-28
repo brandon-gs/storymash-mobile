@@ -1,9 +1,7 @@
 import React from 'react';
-import {
-  createNativeStackNavigator,
-  NativeStackNavigationProp,
-} from '@react-navigation/native-stack';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import ProfileScreen from '_screens/profile-screen';
+import SettingsScreen from '_screens/settings-screen';
 
 const Stack = createNativeStackNavigator();
 
@@ -16,7 +14,7 @@ export default function NavigationAuthenticated() {
         animation: 'slide_from_right',
       }}>
       <Stack.Screen name="Profile" component={ProfileScreen} />
-      <Stack.Screen name="Settings" component={ProfileScreen} />
+      <Stack.Screen name="Settings" component={SettingsScreen} />
     </Stack.Navigator>
   );
 }

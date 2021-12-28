@@ -6,7 +6,7 @@ export interface ILoadingScreenProps {}
 
 export default function LoadingScreen({}: ILoadingScreenProps) {
   const {colorMode} = useColorMode();
-  const [darkColor] = useToken('colors', ['dark.50']);
+  const [lightColor] = useToken('colors', ['blue.500']);
 
   return (
     <View
@@ -21,7 +21,7 @@ export default function LoadingScreen({}: ILoadingScreenProps) {
       _dark={{bgColor: 'dark.50'}}>
       <ActivityIndicator
         size="large"
-        color={colorMode === 'dark' ? 'gray.100' : darkColor}
+        color={lightColor}
         style={{
           ...StyleSheet.absoluteFillObject,
           zIndex: 10000,

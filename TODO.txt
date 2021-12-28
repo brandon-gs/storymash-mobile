@@ -4,11 +4,11 @@
     [*] Add redux thunk
     [*] Add redux persist
 
-[] Create register validations
-    [] No empty fields
-    [] Show a input when select custom gender
-    [] Show loader while do register request (npm install react-native-spinkit@latest --save)
-    [] Show error if it fails
+[*] Create register validations
+    [*] No empty fields
+    [*] Show a input when select custom gender
+    [*] Show loader while do register request (npm install react-native-spinkit@latest --save)
+    [*] Show error if it fails
     
 [*] Create auth reducer
 [*] Create auth actions
@@ -17,16 +17,19 @@
 
 [*] Config env variables
 
-[] Connect redux to dispatch register action
+[*] Connect redux to dispatch register action
 [*] Connect redux to dispatch login action
 
-[] Create "carrousel" in register screen
-    [] Personal information (name, lastname, gender, birthday)
-    [] Login or Profile information (username, email, password, confirm password)
+[] Create custom Header in all screens except login and register
 
-[] Create add story button and screen
+[] Create bottom tabs?
+
+[] Create add story button 
 
 [] Create story screen
+    [] Create form
+    [] Make request to api
+    [] Make validations 
 
 [] Read story
 
@@ -46,6 +49,8 @@
 
 [] Profile screen
 
-[] Favorite stories 
+[] Favorite stories screen
 
-[] Bookmark stories
+[] Bookmark stories screen
+
+[] FAQ Screen
