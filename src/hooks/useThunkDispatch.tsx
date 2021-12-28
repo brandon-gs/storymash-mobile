@@ -1,7 +1,7 @@
 import {useDispatch} from 'react-redux';
 import {Action} from 'redux';
 import {ThunkDispatch} from 'redux-thunk';
-import {RootState} from '_store/store';
+import {RootState} from '_store/reducers';
 
 const useThunkDispatch = () =>
   useDispatch<ThunkDispatch<RootState, unknown, Action>>();

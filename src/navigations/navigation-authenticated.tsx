@@ -1,5 +1,8 @@
 import React from 'react';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {
+  createNativeStackNavigator,
+  NativeStackNavigationProp,
+} from '@react-navigation/native-stack';
 import ProfileScreen from '_screens/profile-screen';
 
 const Stack = createNativeStackNavigator();
@@ -12,19 +15,41 @@ export default function NavigationAuthenticated() {
         headerShown: false,
         animation: 'slide_from_right',
       }}>
-      <Stack.Screen
-        name="Profile"
-        component={ProfileScreen}
-        initialParams={{username: ''}}
-      />
+      <Stack.Screen name="Profile" component={ProfileScreen} />
+      <Stack.Screen name="Settings" component={ProfileScreen} />
     </Stack.Navigator>
   );
 }
 
 // Screens params
 export type AppRootAuthParamList = {
-  ProfileScreen: {username: string};
+  Profile: {profileUsername: string};
+  Settings: undefined;
 };
+
+/**
+ * Types to pass when use useRoute hook
+ * example: const router = useRoute<ProfileScreenProp, 'Profile'>();
+ */
+// export type ProfileScreenProp = NativeStackNavigationProp<
+//   AppRootAuthParamList,
+//   'Profile'
+// >;
+
+// export type ReadStoryScreenProp = NativeStackNavigationProp<
+//   AppRootAuthParamList,
+//   AuthStackRoutes.ReadStory
+// >;
+
+// export type SettingsScreenProp = NativeStackNavigationProp<
+//   AuthStackParams,
+//   AuthStackRoutes.Settings
+// >;
+
+// export type SearchScreenProp = NativeStackNavigationProp<
+//   AuthStackParams,
+//   AuthStackRoutes.Settings
+// >;
 
 // This registers which makes navigation fully type-safe.
 // https://reactnavigation.org/docs/typescript#specifying-default-types-for-usenavigation-link-ref-etc

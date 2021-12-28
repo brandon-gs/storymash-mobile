@@ -12,14 +12,45 @@ const config: ColorModeOptions = {
   initialColorMode: colorScheme,
 };
 
+const DEFAULT_VIEW_COLORS = {
+  bgColor: 'gray.100',
+  _dark: {
+    bgColor: 'dark.50',
+  },
+};
+
 const customTheme = extendTheme({
   config,
   fontConfig,
   fonts,
   components: {
+    View: {
+      defaultProps: {
+        ...DEFAULT_VIEW_COLORS,
+      },
+    },
+    Center: {
+      defaultProps: {
+        ...DEFAULT_VIEW_COLORS,
+      },
+    },
+    HStack: {
+      defaultProps: {
+        ...DEFAULT_VIEW_COLORS,
+      },
+    },
+    VStack: {
+      defaultProps: {
+        ...DEFAULT_VIEW_COLORS,
+      },
+    },
     Text: {
       defaultProps: {
         fontSize: 'md',
+        color: 'gray.700',
+        _dark: {
+          color: 'gray.300',
+        },
       },
     },
     Button: {

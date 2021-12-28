@@ -24,8 +24,8 @@ export default function ActivityIndicatorRPC({
             left: 0,
             right: 0,
             bottom: 0,
-            backgroundColor: 'white',
-          }}>
+          }}
+          bg="gray.100">
           <ActivityIndicator
             size="large"
             color="black"

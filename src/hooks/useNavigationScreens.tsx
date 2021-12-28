@@ -6,6 +6,8 @@ import {useNavigation} from '@react-navigation/core';
 export default function useNavigationScreens() {
   const navigation = useNavigation();
 
+  // ---- Public screens
+
   const goToLoginScreen = () => {
     navigation.navigate('Login');
   };
@@ -14,5 +16,22 @@ export default function useNavigationScreens() {
     navigation.navigate('Register');
   };
 
-  return {goToLoginScreen, goToRegisterScreen};
+  // ---- Private screens
+
+  const goToProfileScreen = (username: string) => {
+    navigation.navigate('Profile', {
+      profileUsername: username,
+    });
+  };
+
+  const goToSettingsScreen = () => {
+    navigation.navigate('Settings');
+  };
+
+  return {
+    goToLoginScreen,
+    goToRegisterScreen,
+    goToProfileScreen,
+    goToSettingsScreen,
+  };
 }

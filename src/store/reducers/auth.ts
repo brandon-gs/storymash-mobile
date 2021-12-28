@@ -1,7 +1,7 @@
 import {User} from '_interfaces/user';
 import {AuthState, AuthActions} from '_store/types/auth.types';
 
-const emptyUser: User = {
+export const emptyUser: User = {
   _id: '',
   about: '',
   age: 0,

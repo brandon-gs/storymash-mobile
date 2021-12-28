@@ -2,7 +2,7 @@ import axios, {AxiosError} from '_utils/axios';
 import {User} from '_interfaces/user';
 import {DispatchAction} from '_store/types';
 import {Alert} from 'react-native';
-import {RootState} from '_store/store';
+import {RootState} from '_store/reducers';
 import * as authService from '_services/auth';
 
 // Update the user without request
@@ -115,5 +115,27 @@ export const enableLoading = () => {
 export const disableLoading = () => {
   return (dispatch: DispatchAction) => {
     dispatch({type: '@AUTH/DISABLE_LOADER'});
+  };
+};
+
+export const followUser = (userId: string) => {
+  return (dispatch: DispatchAction) => {
+    dispatch({
+      type: '@AUTH/USER_ADD_FOLLOWER',
+      payload: {
+        userToFollowId: userId,
+      },
+    });
+  };
+};
+
+export const unfollowUser = (userId: string) => {
+  return (dispatch: DispatchAction) => {
+    dispatch({
+      type: '@AUTH/USER_REMOVE_FOLLOWER',
+      payload: {
+        userToUnfollowId: userId,
+      },
+    });
   };
 };

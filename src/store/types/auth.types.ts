@@ -33,10 +33,26 @@ export interface DisableAuthLoader {
   type: '@AUTH/DISABLE_LOADER';
 }
 
+export interface AddFollowerUserAction {
+  type: '@AUTH/USER_ADD_FOLLOWER';
+  payload: {
+    userToFollowId: string;
+  };
+}
+
+export interface RemoveFollowerUserAction {
+  type: '@AUTH/USER_REMOVE_FOLLOWER';
+  payload: {
+    userToUnfollowId: string;
+  };
+}
+
 export type AuthActions =
   | AuthenticateAction
   | DeauthenticateAction
   | UpdateUserAction
   | RemoveUserAction
   | EnableAuthLoader
-  | DisableAuthLoader;
+  | DisableAuthLoader
+  | AddFollowerUserAction
+  | RemoveFollowerUserAction;
