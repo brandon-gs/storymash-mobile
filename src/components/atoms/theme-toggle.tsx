@@ -30,9 +30,9 @@ export default function ThemeToggle() {
             name="moon"
             size={'md'}
             color={'blue.500'}
-            _dark={{color: 'blue.400'}}
+            _dark={{color: 'blue.500'}}
           />
-          <Text>Modo oscuro</Text>
+          <Text fontSize="lg">Modo oscuro</Text>
         </HStack>
         <Switch
           onTrackColor="blue.100"
@@ -41,7 +41,7 @@ export default function ThemeToggle() {
           onToggle={changeColorMode}
         />
       </HStack>
-      <Divider thickness={2} />
+      <Divider thickness={2} _dark={{bg: 'gray.700'}} />
     </>
   );
 }

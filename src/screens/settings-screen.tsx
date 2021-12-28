@@ -1,3 +1,4 @@
+import {VStack} from 'native-base';
 import React from 'react';
 import SettingsItem from '_components/atoms/settings-item';
 import StyledScrollView from '_components/atoms/styled-scrollview';

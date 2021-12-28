@@ -22,9 +22,16 @@ export default function ProfileHeader({
 
   return (
     <View justifyContent={'center'} alignItems={'center'}>
-      <VStack flex={1} w={400} alignItems={'center'} space={1.5} px={5} py={4}>
+      <VStack
+        flex={1}
+        w={'full'}
+        maxW={400}
+        alignItems={'center'}
+        space={1.5}
+        px={5}
+        py={4}>
         {/* Follow user, user image, username and settings  */}
-        <HStack justifyContent={'space-between'} w={400}>
+        <HStack justifyContent={'space-between'} w="full" maxW={400}>
           <ButtonFollow
             isOwnProfile={isOwnProfile}
             handlePress={handleUserFollow}

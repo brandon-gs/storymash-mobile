@@ -20,9 +20,13 @@
 [*] Connect redux to dispatch register action
 [*] Connect redux to dispatch login action
 
-[] Create custom Header in all screens except login and register
+[] Creacte custom header for profile and settings 
 
 [] Create bottom tabs?
+
+[] Create custom header for tabs 
+
+[] Create edit profile screen
 
 [] Create add story button 
 

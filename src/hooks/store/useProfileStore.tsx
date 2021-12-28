@@ -10,13 +10,15 @@ interface IUseProfileStoreConfig {
   loadProfile: boolean;
 }
 
+const defaultConfig: IUseProfileStoreConfig = {
+  loadProfile: false,
+};
+
 /**
  * This hook requires that params has the profileUsername route params
  * or by default use the authenticated usernam
  */
-export default function useProfileStore({
-  loadProfile = false,
-}: IUseProfileStoreConfig) {
+export default function useProfileStore({loadProfile} = defaultConfig) {
   const dispatch = useThunkDispatch();
 
   // Router navigation params

@@ -2,6 +2,7 @@ import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import ProfileScreen from '_screens/profile-screen';
 import SettingsScreen from '_screens/settings-screen';
+import HeaderProfile from '_components/organisms/NavigationsHeader/header-profile';
 
 const Stack = createNativeStackNavigator();
 
@@ -13,8 +14,24 @@ export default function NavigationAuthenticated() {
         headerShown: false,
         animation: 'slide_from_right',
       }}>
-      <Stack.Screen name="Profile" component={ProfileScreen} />
-      <Stack.Screen name="Settings" component={SettingsScreen} />
+      <Stack.Screen
+        name="Profile"
+        component={ProfileScreen}
+        options={{
+          header: props => (
+            <HeaderProfile {...props} title="Perfil" showEditProfile />
+          ),
+          headerShown: true,
+        }}
+      />
+      <Stack.Screen
+        name="Settings"
+        component={SettingsScreen}
+        options={{
+          header: props => <HeaderProfile {...props} title="Configuración" />,
+          headerShown: true,
+        }}
+      />
     </Stack.Navigator>
   );
 }
