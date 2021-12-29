@@ -22,13 +22,11 @@
 
 [*] Creacte custom header for profile and settings 
 
-[] Create bottom tabs?
+[*] Create bottom tabs?
 
-[] Create custom header for tabs 
+[*] Create custom header for tabs 
 
 [] Create edit profile screen
-
-[] Create add story button 
 
 [] Create story screen
     [] Create form
@@ -56,6 +54,8 @@
 [] Favorite stories screen
 
 [] Bookmark stories screen
+
+[] Search results screen
 
 [] FAQ Screen
 

@@ -1,23 +1,22 @@
 import React, {useState} from 'react';
 import {Avatar, HStack, Icon, Text, View} from 'native-base';
-import useAuthenticationStore from '_hooks/store/useAuthenticationStore';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {BottomTabHeaderProps} from '@react-navigation/bottom-tabs';
 import {NativeStackHeaderProps} from '@react-navigation/native-stack';
 import {TouchableOpacity} from 'react-native';
 import InputSearch from '_components/molecules/input-search';
-import useNavigationScreens from '_hooks/useNavigationScreens';
+import {User} from '_interfaces/user';
+import {isEqual} from 'lodash';
 
 export type IHeaderAuth = BottomTabHeaderProps | NativeStackHeaderProps;
 
-export default function HeaderAuth() {
+interface IHeaderAuthProps {
+  user: User;
+  goToProfileScreen: (username: string) => void;
+}
+
+function HeaderAuth({user, goToProfileScreen}: IHeaderAuthProps) {
   const [showSearchBar, setShowSearchBar] = useState<boolean>(false);
-
-  const {
-    state: {user},
-  } = useAuthenticationStore();
-
-  const {goToProfileScreen} = useNavigationScreens();
 
   return (
     <>
@@ -74,3 +73,7 @@ export default function HeaderAuth() {
     </>
   );
 }
+
+export default React.memo(HeaderAuth, (prev, next) => {
+  return isEqual(prev, next);
+});

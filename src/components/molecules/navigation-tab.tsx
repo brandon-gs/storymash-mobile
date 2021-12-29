@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {isEqual} from 'lodash';
 import {BottomTabBarProps} from '@react-navigation/bottom-tabs';
 import {
   Dimensions,
@@ -125,4 +126,6 @@ const getIconName = (index: number, isFocused: boolean) => {
   return ICONS[0];
 };
 
-export default NavigationTab;
+export default React.memo(NavigationTab, (prev, next) => {
+  return isEqual(prev, next);
+});
