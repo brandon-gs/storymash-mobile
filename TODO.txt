@@ -20,7 +20,7 @@
 [*] Connect redux to dispatch register action
 [*] Connect redux to dispatch login action
 
-[] Creacte custom header for profile and settings 
+[*] Creacte custom header for profile and settings 
 
 [] Create bottom tabs?
 
@@ -58,3 +58,5 @@
 [] Bookmark stories screen
 
 [] FAQ Screen
+
+[] Implement search history and provide sugestions

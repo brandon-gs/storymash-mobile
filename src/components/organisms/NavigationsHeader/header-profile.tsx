@@ -6,6 +6,7 @@ import useAuthenticationStore from '_hooks/store/useAuthenticationStore';
 import selectors from '_store/selectors';
 import {useSelector} from 'react-redux';
 import {TouchableOpacity} from 'react-native';
+import ButtonBack from '_components/atoms/button-back';
 
 interface IHeaderProfileProps extends NativeStackHeaderProps {
   title: string;
@@ -27,7 +28,7 @@ export default function HeaderProfile({
 
   useEffect(() => {
     setCanGoBack(navigation.canGoBack());
-  }, [navigation.canGoBack()]);
+  }, [navigation]);
 
   const isOwnProfile = user._id === profileUser._id;
 
@@ -41,13 +42,9 @@ export default function HeaderProfile({
       borderBottomWidth={2}
       borderBottomColor={'gray.500'}
       _dark={{bg: 'dark.50'}}
-      style={{height: 58.1818}}>
+      style={containerStyle}>
       <HStack space="4" alignItems={'center'} w="1/4">
-        {canGoBack && (
-          <TouchableOpacity onPress={navigation.goBack}>
-            <Icon as={Ionicons} name="chevron-back-outline" color="blue.500" />
-          </TouchableOpacity>
-        )}
+        {canGoBack && <ButtonBack onPress={navigation.goBack} />}
       </HStack>
       <HStack w="2/4" justifyContent={'center'}>
         <Text fontWeight={'bold'} fontSize="xl">
@@ -64,3 +61,5 @@ export default function HeaderProfile({
     </HStack>
   );
 }
+
+const containerStyle = {height: 58.1818};
