@@ -37,8 +37,7 @@ export default function useProfileStore({loadProfile} = defaultConfig) {
   const [profileLoading, setProfileLoading] = useState<boolean>(false);
 
   // Constants helpers
-  const isUserFollowing =
-    profileUser && user ? user.following.includes(profileUser._id) : false;
+  const isUserFollowing = user.following.includes(profileUser._id);
 
   const profileUsername = route.params
     ? route.params.profileUsername
@@ -46,29 +45,27 @@ export default function useProfileStore({loadProfile} = defaultConfig) {
 
   const isOwnProfile = profileUsername === user.username;
 
-  const wasVisitedBefore = Boolean(
-    profileUser && profileUser.username === profileUsername,
-  );
+  const wasVisitedBefore = Boolean(profileUser.username === profileUsername);
 
   // Actions
   const getProfileData = useCallback(async () => {
     setProfileLoading(() => true);
-    await dispatch(actions.profile.setProfileStories(profileUsername, 0));
     await dispatch(actions.profile.setProfile(profileUsername));
+    await dispatch(actions.profile.setProfileStories(profileUsername, 0));
     setProfileLoading(() => false);
-  }, [profileUsername]);
+  }, [profileUsername, dispatch]);
 
   const followUser = useCallback(async () => {
     if (profileUser) {
       await dispatch(actions.profile.followUser(profileUser.username));
     }
-  }, []);
+  }, [dispatch, profileUser]);
 
   const unfollowUser = useCallback(async () => {
     if (profileUser) {
       await dispatch(actions.profile.unfollowUser(profileUser.username));
     }
-  }, []);
+  }, [dispatch, profileUser]);
 
   const handleUserFollow = useCallback(async () => {
     // follow if current user is not follower
@@ -78,7 +75,7 @@ export default function useProfileStore({loadProfile} = defaultConfig) {
       await unfollowUser();
     }
     await dispatch(actions.plank.getPlankStories(0));
-  }, [isUserFollowing]);
+  }, [dispatch, followUser, unfollowUser, isUserFollowing]);
 
   // Load profile if is config loadProfile as true
   useFocusEffect(
@@ -86,7 +83,7 @@ export default function useProfileStore({loadProfile} = defaultConfig) {
       if (!wasVisitedBefore && loadProfile) {
         getProfileData();
       }
-    }, []),
+    }, [getProfileData, wasVisitedBefore, loadProfile]),
   );
 
   return {

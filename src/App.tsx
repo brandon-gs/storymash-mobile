@@ -9,20 +9,18 @@ import NavigationRoot from '_navigations/navigation-root';
 import {store, persistor} from '_store/store';
 import theme from '_theme/theme';
 
-const App = () => {
-  return (
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <SafeAreaProvider>
-          <NativeBaseProvider theme={theme} colorModeManager={colorModeManager}>
-            <NavigationContainer>
-              <NavigationRoot />
-            </NavigationContainer>
-          </NativeBaseProvider>
-        </SafeAreaProvider>
-      </PersistGate>
-    </Provider>
-  );
-};
+const App = () => (
+  <Provider store={store}>
+    <PersistGate loading={null} persistor={persistor}>
+      <SafeAreaProvider>
+        <NativeBaseProvider theme={theme} colorModeManager={colorModeManager}>
+          <NavigationContainer>
+            <NavigationRoot />
+          </NavigationContainer>
+        </NativeBaseProvider>
+      </SafeAreaProvider>
+    </PersistGate>
+  </Provider>
+);
 
 export default App;
